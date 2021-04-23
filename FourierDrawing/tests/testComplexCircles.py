@@ -1,7 +1,7 @@
 
 import sys
 sys.path.append("..")
-from Cirles_radii_center.ComplexCircles import Circles
+from Cirles_radii_center.ComplexCircles import ComplexCircles as C
 import unittest
 
 class TestComplexCircles:
@@ -12,7 +12,7 @@ class TestComplexCircles:
         self.C.num_circles(300)
 
     def test_Circles_is_instance_of_Circles(self):
-        self.assertIsInstance(self.C, Circles)
+        self.assertIsInstance(self.C, ComplexCircles)
 
 if __name__=='__main__':
     unittest.main()
