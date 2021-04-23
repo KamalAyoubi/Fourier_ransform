@@ -170,3 +170,4 @@ class Imagemanip:
                 y_cord.append(y_spl(v))  
             p = plt.plot(x_cord,y_cord)
 
+            

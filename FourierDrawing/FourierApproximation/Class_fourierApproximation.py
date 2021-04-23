@@ -1,8 +1,10 @@
 import numpy as np
 from copy import deepcopy
 
+### Class FourierApprox 
 class FourierApprox:
-    """Calculate the complex Fourier coefficients for a given function
+    """
+    This Class will calculate the complex Fourier coefficients for a given function
     """
     def __init__(self,
             fxn,  # Function to be transformed (as Python function object)
@@ -14,6 +16,27 @@ class FourierApprox:
             num_points=1000, # Number of points at which to evalute function
             num_circles=50 # This is needed to calculate proper offsets
         ):
+        """
+        Create the variables associated with the class
+
+        :type fxn:  scipy.interpolate.fitpack2.UnivariateSpline
+        :param fxn: Function to be transformed
+
+        :type rnge: tuple
+        :param rnge : the range at which to evaluate fxn
+
+        :type N: int, default = 500 
+        :param N : Number of coefficients to calculate
+
+        :type period: int, default = None 
+        :param N : the period, if the period == None then it is equal to the entire length of the function 
+
+        :type num_points: int, default = 1000
+        :param num_points : Number of points at which to evalute function
+
+        :type num_circles : int, default = 50
+        :param num_circles : Number of cercles that will be used 
+        """
         
         #assert isinstance(fxn , scipy.interpolate.fitpack2.UnivariateSpline) ' Attribute fxn: should be scipy.interpolate.fitpack2.UnivariateSpline '
         #assert isinstance(rnge, tuple) ' Attribute rnge: should be a tuple  '
