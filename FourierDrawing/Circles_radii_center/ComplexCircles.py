@@ -1,11 +1,5 @@
 #%%
-import matplotlib
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import imshow
 import numpy as np
-from PIL import Image, ImageEnhance
-import requests
-from io import BytesIO
 from copy import deepcopy
 
 
