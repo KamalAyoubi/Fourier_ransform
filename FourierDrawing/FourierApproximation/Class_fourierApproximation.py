@@ -15,6 +15,13 @@ class FourierApprox:
             num_circles=50 # This is needed to calculate proper offsets
         ):
         
+        #assert isinstance(fxn , scipy.interpolate.fitpack2.UnivariateSpline) ' Attribute fxn: should be scipy.interpolate.fitpack2.UnivariateSpline '
+        #assert isinstance(rnge, tuple) ' Attribute rnge: should be a tuple  '
+        #assert isinstance(N, int) ' Attribute N : should be an integer  '
+        #assert isinstance(period, int) ' Attribute period: should be an integer  '
+        #assert isinstance(num_points, int)  ' Attribute num_points: should be an integer '
+        #assert isinstance(num_circles, int)  ' Attribute num_circles: should be an integer'
+        
         self.num_circles = num_circles
         
         t_vals, y = zip(*[(v, fxn(v)) for v in np.linspace(rnge[0], rnge[1]-1, num_points)])
