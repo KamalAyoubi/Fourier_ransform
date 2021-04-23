@@ -45,23 +45,13 @@ class FourierApprox:
         #assert isinstance(num_points, int)  ' Attribute num_points: should be an integer '
         #assert isinstance(num_circles, int)  ' Attribute num_circles: should be an integer'
         
-
-
         self.num_circles = num_circles
-
-
-        t_vals = list()
-        y = list()
-        for i in np.linspace(rnge[0], rnge[1]-1, num_points):
-            t_vals.append(i)
-            y.append(fxn(i))
-
-        #t_vals, y = zip(*[(v, fxn(v)) for v in np.linspace(rnge[0], rnge[1]-1, num_points)])
+        
+        t_vals, y = zip(*[(v, fxn(v)) for v in np.linspace(rnge[0], rnge[1]-1, num_points)])
         t_vals = np.array(t_vals)        
         self.t_vals = t_vals
         
-       
-
+        
         # Save the original coords when plotting
         y = np.array(y)
         y = y - y[0]
@@ -79,7 +69,6 @@ class FourierApprox:
         y = y - y[0]
         
         self.N = N
-
         if period==None:
             period = rnge[1]
         self.period = period
@@ -88,12 +77,7 @@ class FourierApprox:
             c = y*np.exp(-1j*2*n*np.pi*t_vals/period)
             return(c.sum()/c.size)
 
-        #coefs = [cn(i) for i in range(1,N+1)]
-        coefs = list()
-        for i in range(1,N+1):
-            coefs.append(cn(i))
-
-
+        coefs = [cn(i) for i in range(1,N+1)]
         self.coefs = coefs
         self.real_coefs = [c.real for c in self.coefs]
         self.imag_coefs = [c.imag for c in self.coefs]
@@ -102,16 +86,14 @@ class FourierApprox:
         self.phases = np.angle(self.coefs)
         
         
-        def f(x, order=N):
-            # Evaluate the function y at time t using Fourier approximiation of order N
-            f = list()
-            for i in range(1,order+1):
-                f.append(2*coefs[i-1]*np.exp(1j*2*i*np.pi*x/period))
-                return(np.array(f).sum())
+        def f(x, degree=N):
+            # Evaluate the function y at time t using Fourier approximiation of degree N
+            f = np.array([2*coefs[i-1]*np.exp(1j*2*i*np.pi*x/period) for i in range(1,degree+1)])
+            return(f.sum())
         
-         # Evaluate function at all specified points in t domain
-        fourier_approximation = np.array([f(t, order=N).real for t in t_vals])
-        circles_approximation = np.array([f(t, order=self.num_circles).real for t in t_vals])
+        # Evaluate function at all specified points in t domain
+        fourier_approximation = np.array([f(t, degree=N).real for t in t_vals])
+        circles_approximation = np.array([f(t, degree=self.num_circles).real for t in t_vals])
         
         # Set intercept to same as original function
         #fourier_approximation = fourier_approximation - fourier_approximation[0] + self.original_offset 
