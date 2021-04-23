@@ -28,7 +28,7 @@ class test_Imgmanip(unittest.TestCase):
         img.convert_binary(scale=3, thresh_val=200)
         for i in range(len(img.image_array)):
             for j in range(len(img.image_array[0])):
-                self.assertIn(img.image_array[i][j], (0,255)) # = 0 or 255
+                self.assertIn(img.image_array[i][j], (1,255)) # = 0 or 255
  
 if __name__ == '__main__':
     unittest.main()
