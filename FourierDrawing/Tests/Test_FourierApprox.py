@@ -1,4 +1,3 @@
-
 import sys
 sys.path.append("..")
 from ImageManipulation.Imgmanip import Imagemanip
