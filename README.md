@@ -18,7 +18,7 @@ We will create a class named FourierSerie that provides functions for calculate 
 
 # Step 3 : Create and animate the circle ( Coding : Stephane  Sadio)
 
-We will create a class named Circles that provides fubctions for : 
+We will create a class named Circles that provides functions for : 
 
    - Tracking radii and center of circle implied by  Fourier decomposition of given FourierSerie object.
    - Perform the  animation.
